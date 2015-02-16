@@ -8,7 +8,7 @@ print("Welcome to Hangman and goodluck!")
 #and strip spaces, new lines etc
 words = list(open("Dict.txt"))
 word = random.choice(words).rstrip().lower()
-print word #for testing purposes
+#print word #for testing purposes
 
 answer = []
 for i in word:
@@ -122,7 +122,7 @@ while(incorrect != 8 and correct < len(word) and not(ans_str==word)):
 
 	if(len(guess)>1):
 		print "Please enter a single letter!"
-		
+
 	elif(guess.lower() in prev_guess):
 		print "You guessed that letter already!"
 
