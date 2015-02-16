@@ -123,11 +123,11 @@ while(incorrect != 8 and correct < len(word) and not(ans_str==word)):
 	if(len(guess)>1):
 		print "Please enter a single letter!"
 
-	elif(guess.lower() in prev_guess):
+	elif(guess.lower() in prev_guess or guess.lower() in answer):
 		print "You guessed that letter already!"
 
-	elif(guess.lower() in answer):
-		print "You guess that letter already!"
+	#elif(guess.lower() in answer):
+	#	print "You guess that letter already!"
 
 	elif(guess.lower() in word):
 		print("That letter is part of the word!")
