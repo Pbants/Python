@@ -131,10 +131,12 @@ while(incorrect != 8 and correct < len(word) and not(ans_str==word)):
 
 	elif(guess.lower() in word):
 		print("That letter is part of the word!")
+		prev_guess.append(guess.lower())
 		for i in re.finditer(guess.lower(), word):
 			local = i.start()
 			#add the letter to the answer list in the same location as the original word
 			answer[local] = guess.lower()
+		print ("Used Letters %s") %prev_guess
 		print HANGMAN[incorrect]
 		print ("%s") % answer
 		correct = correct + 1
