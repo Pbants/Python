@@ -4,7 +4,7 @@ from pprint import *
 import time
 #Allows for colored text to be printed in terminal
 from termcolor import colored, cprint
-import base64
+import os
 
 #User agent name in accordance with Reddit API
 user_agent = "User-Agent: Crawl /r/gardening test v1.3 by /u/comtb"
@@ -15,11 +15,12 @@ r = praw.Reddit(user_agent=user_agent)
 r.login(username='comtb')
 
 #input favorite reddit subs here
-favorites = ['Gardening','WorldNews']
+favorites = ['Gardening','DevOps','WorldNews']
 
 #loop until keyboard inturrupt ctrl-c
 while True:
-	#Go through each subreddit in favorites and get the top 5 submissions under hot, can switch betwen get_new and get_hot
+	os.system('cls' if os.name == 'nt' else 'clear')
+	#Go through each subreddit in favorites and get the top 5 submissions under hot, can switch between get_new and get_hot
 	for sub in favorites:
 		subreddit = r.get_subreddit(sub)
 		for submission in subreddit.get_new(limit = 5):
