@@ -1,8 +1,6 @@
 #Import PRAW (for reddit)
 import praw
-from pprint import *
 import time
-#Allows for colored text to be printed in terminal
 from termcolor import colored, cprint
 import os
 
@@ -19,6 +17,7 @@ favorites = ['Gardening','DevOps','WorldNews']
 
 #loop until keyboard inturrupt ctrl-c
 while True:
+	#clear the screen each run through
 	os.system('cls' if os.name == 'nt' else 'clear')
 	#Go through each subreddit in favorites and get the top 5 submissions under hot, can switch between get_new and get_hot
 	for sub in favorites:
@@ -26,6 +25,6 @@ while True:
 		for submission in subreddit.get_new(limit = 5):
 			cprint (subreddit, 'red')
 			print (submission.title)
-			cprint (submission.url, 'magenta')
+			cprint (submission.permalink, 'magenta')
 	#wait time in accordance with Reddit API
 	time.sleep(1800)
