@@ -47,7 +47,7 @@ def get_all_tweets(tweep):
 		write = csv.writer(f)
 		write.writerow(["Date Created" "Tweet Content"])
 
-	for tweet in tweepy.Cursor(api.user_timeline, id=tweep, since="2015-6-30", until="2015-9-25").items(200):
+	for tweet in tweepy.Cursor(api.user_timeline, id=tweep, since="2015-6-30", until="2015-9-28").items(200):
 
 		tweetlist = [tweet.created_at, tweet.text.encode("utf-8")]
 
@@ -56,7 +56,7 @@ def get_all_tweets(tweep):
 			write = csv.writer(f)
 			write.writerows([tweetlist])
 		pass
-"""
+
 def get_user_info(user):
 	users = t.lookup_user(screen_name = ids)
 
@@ -91,9 +91,9 @@ def get_user_info(user):
 		outfp.write(string.join(list, "\t").encode("utf-8") + "\n")
 
 	outfp.close()
-"""
+
 if __name__ == '__main__':
 	for entry in ids:
 		print entry
 		get_all_tweets(entry)
-	#get_user_info(users)
+	get_user_info(users)
